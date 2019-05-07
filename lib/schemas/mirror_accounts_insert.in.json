@@ -1,0 +1,73 @@
+{
+    "type": "object",
+    "properties": {
+        "accountName": {
+            "required": true,
+            "type": "string"
+        },
+        "accountType": {
+            "required": true,
+            "type": "string"
+        },
+        "userToken": {
+            "required": true,
+            "type": "string"
+        },
+        "oauth_token": {
+            "type": "string"
+        },
+        "prettyPrint": {
+            "type": "boolean",
+            "default": true
+        },
+        "quotaUser": {
+            "type": "string"
+        },
+        "userIp": {
+            "type": "string"
+        },
+        "requestBody": {
+            "description": "Represents an account passed into the Account Manager on Glass.",
+            "properties": {
+                "authTokens": {
+                    "items": {
+                        "properties": {
+                            "authToken": {
+                                "type": "string"
+                            },
+                            "type": {
+                                "type": "string"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    "type": "array"
+                },
+                "features": {
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "password": {
+                    "type": "string"
+                },
+                "userData": {
+                    "items": {
+                        "properties": {
+                            "key": {
+                                "type": "string"
+                            },
+                            "value": {
+                                "type": "string"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        }
+    }
+}

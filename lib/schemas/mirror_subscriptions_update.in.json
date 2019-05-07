@@ -1,0 +1,115 @@
+{
+    "type": "object",
+    "properties": {
+        "id": {
+            "required": true,
+            "type": "string"
+        },
+        "fields": {
+            "type": "string"
+        },
+        "key": {
+            "type": "string"
+        },
+        "oauth_token": {
+            "type": "string"
+        },
+        "prettyPrint": {
+            "type": "boolean",
+            "default": true
+        },
+        "quotaUser": {
+            "type": "string"
+        },
+        "userIp": {
+            "type": "string"
+        },
+        "requestBody": {
+            "description": "A subscription to events on a collection.",
+            "properties": {
+                "callbackUrl": {
+                    "description": "The URL where notifications should be delivered (must start with https://).",
+                    "type": "string"
+                },
+                "collection": {
+                    "description": "The collection to subscribe to. Allowed values are:  \n- timeline - Changes in the timeline including insertion, deletion, and updates. \n- locations - Location updates. \n- settings - Settings updates.",
+                    "type": "string"
+                },
+                "id": {
+                    "description": "The ID of the subscription.",
+                    "type": "string"
+                },
+                "kind": {
+                    "default": "mirror#subscription",
+                    "description": "The type of resource. This is always mirror#subscription.",
+                    "type": "string"
+                },
+                "notification": {
+                    "description": "Container object for notifications. This is not populated in the Subscription resource.",
+                    "properties": {
+                        "collection": {
+                            "description": "The collection that generated the notification.",
+                            "type": "string"
+                        },
+                        "itemId": {
+                            "description": "The ID of the item that generated the notification.",
+                            "type": "string"
+                        },
+                        "operation": {
+                            "description": "The type of operation that generated the notification.",
+                            "type": "string"
+                        },
+                        "userActions": {
+                            "description": "A list of actions taken by the user that triggered the notification.",
+                            "items": {
+                                "description": "Represents an action taken by the user that triggered a notification.",
+                                "properties": {
+                                    "payload": {
+                                        "description": "An optional payload for the action.\n\nFor actions of type CUSTOM, this is the ID of the custom menu item that was selected.",
+                                        "type": "string"
+                                    },
+                                    "type": {
+                                        "description": "The type of action. The value of this can be:  \n- SHARE - the user shared an item. \n- REPLY - the user replied to an item. \n- REPLY_ALL - the user replied to all recipients of an item. \n- CUSTOM - the user selected a custom menu item on the timeline item. \n- DELETE - the user deleted the item. \n- PIN - the user pinned the item. \n- UNPIN - the user unpinned the item. \n- LAUNCH - the user initiated a voice command.  In the future, additional types may be added. UserActions with unrecognized types should be ignored.",
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            },
+                            "type": "array"
+                        },
+                        "userToken": {
+                            "description": "The user token provided by the service when it subscribed for notifications.",
+                            "type": "string"
+                        },
+                        "verifyToken": {
+                            "description": "The secret verify token provided by the service when it subscribed for notifications.",
+                            "type": "string"
+                        }
+                    },
+                    "type": "object"
+                },
+                "operation": {
+                    "description": "A list of operations that should be subscribed to. An empty list indicates that all operations on the collection should be subscribed to. Allowed values are:  \n- UPDATE - The item has been updated. \n- INSERT - A new item has been inserted. \n- DELETE - The item has been deleted. \n- MENU_ACTION - A custom menu item has been triggered by the user.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "updated": {
+                    "description": "The time at which this subscription was last modified, formatted according to RFC 3339.",
+                    "format": "date-time",
+                    "type": "string"
+                },
+                "userToken": {
+                    "description": "An opaque token sent to the subscriber in notifications so that it can determine the ID of the user.",
+                    "type": "string"
+                },
+                "verifyToken": {
+                    "description": "A secret token sent to the subscriber in notifications so that it can verify that the notification was generated by Google.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        }
+    }
+}

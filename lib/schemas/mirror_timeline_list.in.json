@@ -1,0 +1,30 @@
+{
+    "type": "object",
+    "properties": {
+        "bundleId": {
+            "type": "string"
+        },
+        "includeDeleted": {
+            "type": "boolean"
+        },
+        "maxResults": {
+            "type": "integer"
+        },
+        "orderBy": {
+            "type": "string",
+            "enum": [
+                "displayTime",
+                "writeTime"
+            ]
+        },
+        "pageToken": {
+            "type": "string"
+        },
+        "pinnedOnly": {
+            "type": "boolean"
+        },
+        "sourceItemId": {
+            "type": "string"
+        }
+    }
+}
